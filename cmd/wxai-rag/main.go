@@ -6,18 +6,17 @@ import (
 	"wxai-rag/api"
 	"wxai-rag/configs"
 	"wxai-rag/internal/watsonxai"
-	"wxai-rag/pkg/elasticsearch"
 )
 
 func main() {
 	// Load configuration
-	config := configs.LoadConfig("configs/config.yaml")
+	config := configs.LoadConfig("../../configs/config.yaml")
 
 	// Initialize Elasticsearch client
-	esClient, err := elasticsearch.NewClient(config.Elasticsearch)
-	if err != nil {
-		log.Fatalf("Failed to initialize Elasticsearch client: %v", err)
-	}
+	// esClient, err := elasticsearch.NewClient(config.Elasticsearch)
+	// if err != nil {
+	// 	log.Fatalf("Failed to initialize Elasticsearch client: %v", err)
+	// }
 
 	// Initialize WatsonX.AI client
 	wxClient, err := watsonxai.NewClient(config.WatsonxAI)
@@ -26,7 +25,8 @@ func main() {
 	}
 
 	// Set up API routes
-	router := api.SetupRouter(esClient, wxClient)
+	// router := api.SetupRouter(esClient, wxClient)
+	router := api.SetupRouter(wxClient)
 
 	// Start the HTTP server
 	log.Println("Starting server on :4060")
