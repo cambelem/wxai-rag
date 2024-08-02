@@ -17,9 +17,7 @@ func NewClient(cfg configs.WatsonXAIConfig) (*Client, error) {
 		ProjectID:   cfg.ProjectID,
 		APIEndpoint: cfg.APIEndpoint,
 	}
-	// Optionally, you can add code here to validate the client or set up initial connections
-
-	// For example, you might want to check the API key and endpoint
+	// Validate the client / set up initial connections
 	if client.APIKey == "" || client.APIEndpoint == "" || client.ProjectID == "" {
 		return nil, fmt.Errorf("invalid WatsonX.AI configuration: API key, endpoint, and project id must be set")
 	}
