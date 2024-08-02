@@ -1,0 +1,10 @@
+elasticsearch:
+  username: "wxd-username"
+  password: "wxd-password"
+  addresses: 
+    - "https://<url>:<port>"
+
+watsonxai:
+  api_key: "ibmcloud_api_key"
+  project_id: "wxai_project_id"
+  api_endpoint: "https://us-south.ml.cloud.ibm.com"
